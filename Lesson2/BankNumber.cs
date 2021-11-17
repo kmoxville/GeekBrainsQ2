@@ -9,6 +9,7 @@ namespace Lesson2
     class BankNumber
     {
         public const int NUMBER_LENGTH = 20;
+
         private string _number;
 
         public BankNumber(string number)
