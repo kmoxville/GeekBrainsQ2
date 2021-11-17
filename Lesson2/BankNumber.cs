@@ -38,6 +38,7 @@ namespace Lesson2
         {
             Random rand = new Random();
             string chars = "1234567890";
+
             return new BankNumber(new string(Enumerable.Repeat(0, NUMBER_LENGTH).Select(_ => chars[rand.Next(chars.Length)]).ToArray()));
         }
 
