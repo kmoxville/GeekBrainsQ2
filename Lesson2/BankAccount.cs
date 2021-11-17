@@ -10,28 +10,30 @@ namespace Lesson2
     {
         private decimal _balance;
 
+
         #region ctor
 
-        public BankAccount(BankNumber number, decimal balance)
+        public BankAccount(BankNumber number, BankAccountKind kind, decimal balance)
         {
             Number = number;
             Balance = balance;
+            Kind = kind;
         }
 
-        public BankAccount(string number, decimal balance)
+        public BankAccount(string number, BankAccountKind kind, decimal balance)
+            : this(new BankNumber(number), kind, balance)
         {
-            Number = new BankNumber(number);
-            Balance = balance;
+
         }
 
         public BankAccount(BankNumber number)
-            : this(number, 0)
+            : this(number, BankAccountKind.VISA, 0)
         {
 
         }
 
         public BankAccount(string number)
-            : this(number, 0)
+            : this(number, BankAccountKind.VISA, 0)
         {
 
         }
@@ -47,7 +49,13 @@ namespace Lesson2
         public BankNumber Number 
         { 
             get; 
-            set; 
+            init; 
+        }
+
+        public BankAccountKind Kind
+        {
+            get;
+            init;
         }
 
         public decimal Balance
@@ -71,7 +79,13 @@ namespace Lesson2
 
         public override string ToString()
         {
-            return $"BankAccount [Number: {Number}; Balance: {Balance}]";
+            return $"BankAccount [Number: {Number}; Kind: {Kind}; Balance: {Balance}]";
         }
+    }
+
+    enum BankAccountKind
+    {
+        VISA,
+        MASTERCARD
     }
 }
