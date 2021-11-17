@@ -31,7 +31,7 @@ namespace Lesson2
 
         public override string ToString()
         {
-            return _number.ToString();
+            return $"BankNumber [{_number.ToString()}]";
         }
 
         public static BankNumber GenerateRandom()
