@@ -21,12 +21,12 @@ namespace Lesson2
             Console.WriteLine($"Test BankAccount: {account}");
 
             BankAccount secondAccount = new BankAccount();
+            secondAccount.Add(500);
 
             Console.WriteLine($"Before transfer");
             Console.WriteLine($"First BankAccount: {account}");
             Console.WriteLine($"Second BankAccount: {secondAccount}");
-
-            secondAccount.Add(500);
+        
             secondAccount.Transfer(account, 400);
 
             Console.WriteLine($"After transfer");
