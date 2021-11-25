@@ -19,6 +19,22 @@ namespace Lesson2
                 .Add(200);
 
             Console.WriteLine($"Test BankAccount: {account}");
+
+            BankAccount secondAccount = new BankAccount();
+
+            Console.WriteLine($"Before transfer");
+            Console.WriteLine($"First BankAccount: {account}");
+            Console.WriteLine($"Second BankAccount: {secondAccount}");
+
+            secondAccount.Add(500);
+            secondAccount.Transfer(account, 400);
+
+            Console.WriteLine($"After transfer");
+            Console.WriteLine($"First BankAccount: {account}");
+            Console.WriteLine($"Second BankAccount: {secondAccount}");
+
+            string testString = "test";
+            Console.WriteLine($"String reverse test: {testString.Reverse()}");
         }
     }
 }
