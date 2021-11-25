@@ -75,7 +75,13 @@ namespace Lesson2
             Balance += payment;
 
             return this;
-        }  
+        }
+
+        public void Transfer(BankAccount anotherBankAccount, Decimal value)
+        {
+            anotherBankAccount.Add(value);
+            this.Add(-value);
+        }
 
         public override string ToString()
         {
