@@ -75,11 +75,46 @@ namespace Lesson2
             Balance += payment;
 
             return this;
-        }  
+        }
+
+        public void Transfer(BankAccount anotherBankAccount, Decimal value)
+        {
+            anotherBankAccount.Add(value);
+            this.Add(-value);
+        }
 
         public override string ToString()
         {
             return $"BankAccount [Number: {Number}; Kind: {Kind}; Balance: {Balance}]";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+                return false;
+
+            BankAccount ba = (BankAccount)obj;
+
+            return ba.Number == this.Number;
+        }
+
+        public override int GetHashCode()
+        {
+            return Number.GetHashCode();
+        }
+
+        public static bool operator ==(BankAccount leftBA, BankAccount rightBA)
+        {
+            if (leftBA is null)
+                return rightBA is null;
+
+            return leftBA.Equals(rightBA);
+        }
+
+        public static bool operator !=(BankAccount leftBA, BankAccount rightBA)
+        {
+
+            return leftBA == rightBA;
         }
     }
 
