@@ -87,6 +87,21 @@ namespace Lesson2
         {
             return $"BankAccount [Number: {Number}; Kind: {Kind}; Balance: {Balance}]";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+                return false;
+
+            BankAccount ba = (BankAccount)obj;
+
+            return ba.Number == this.Number;
+        }
+
+        public override int GetHashCode()
+        {
+            return Number.GetHashCode();
+        }
     }
 
     enum BankAccountKind

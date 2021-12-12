@@ -35,6 +35,11 @@ namespace Lesson2
 
             string testString = "test";
             Console.WriteLine($"String reverse test: {testString.Reverse()}");
+
+            //Lesson 6
+            Console.WriteLine("Lesson 6...");
+            Console.WriteLine($"account == secondAccount: {account == secondAccount}");
+            Console.WriteLine($"account.GetHashCode(): {account.GetHashCode()}");
         }
     }
 }

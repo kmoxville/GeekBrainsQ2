@@ -29,11 +29,6 @@ namespace Lesson2
             }
         }
 
-        public override string ToString()
-        {
-            return $"BankNumber [{_number.ToString()}]";
-        }
-
         public static BankNumber GenerateRandom()
         {
             Random rand = new Random();
@@ -60,6 +55,26 @@ namespace Lesson2
             {
                 return false;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"BankNumber [{_number.ToString()}]";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+                return false;
+
+            BankNumber bn = (BankNumber)obj;
+
+            return bn.Number == this.Number;
+        }
+
+        public override int GetHashCode()
+        {
+            return Number.GetHashCode();
         }
     }
 }
