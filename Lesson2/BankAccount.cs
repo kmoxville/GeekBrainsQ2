@@ -102,6 +102,20 @@ namespace Lesson2
         {
             return Number.GetHashCode();
         }
+
+        public static bool operator ==(BankAccount leftBA, BankAccount rightBA)
+        {
+            if (leftBA is null)
+                return rightBA is null;
+
+            return leftBA.Equals(rightBA);
+        }
+
+        public static bool operator !=(BankAccount leftBA, BankAccount rightBA)
+        {
+
+            return leftBA == rightBA;
+        }
     }
 
     enum BankAccountKind
